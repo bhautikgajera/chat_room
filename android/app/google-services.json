@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "507358635024",
+    "project_id": "flash-chat-98fde",
+    "storage_bucket": "flash-chat-98fde.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:507358635024:android:80324c1ce5253d734e5695",
+        "android_client_info": {
+          "package_name": "com.bhautik.chat_room"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "507358635024-f16199v22la6jur5t8sbn98hug68ar2o.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.bhautik.chat_room",
+            "certificate_hash": "771d16787784f647715176c2a982bc51ad5d2238"
+          }
+        },
+        {
+          "client_id": "507358635024-9ssbf46sqbdeb8a8boko368ckjbg2nck.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDNndikM6De9Mw16UwUgD2HEgU0CZDVMTk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "507358635024-9ssbf46sqbdeb8a8boko368ckjbg2nck.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
