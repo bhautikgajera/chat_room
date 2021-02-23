@@ -41,8 +41,8 @@ class _RegistrationBodyState extends State<RegistrationBody> {
       child: Container(
         /// Whole Body is fitted in this Container
         color: Colors.black12,
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
+        child: ListView(
+          // mainAxisAlignment: MainAxisAlignment.center,
           children: [
             LogoBox(
               /// App Logo Shows
@@ -55,7 +55,9 @@ class _RegistrationBodyState extends State<RegistrationBody> {
                 onChangedPass: (value) => password = value),
             Buttons(onPressed: createNewUser).registerButton(),
             Divider(height: 20),
-            Text('OR'),
+            Center(
+              child: Text('OR'),
+            ),
 
             ///
             /// Bellow Button is Google SignIn Button

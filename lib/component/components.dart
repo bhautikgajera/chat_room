@@ -141,6 +141,7 @@ class InputTextFields extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.all(8.0),
             child: TextField(
+              keyboardType: TextInputType.emailAddress,
               textAlign: TextAlign.center,
               decoration:
                   kTextFieldDecoration.copyWith(hintText: 'Enter Your Email'),
@@ -150,6 +151,7 @@ class InputTextFields extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.all(8.0),
             child: TextField(
+              obscureText: true,
               textAlign: TextAlign.center,
               decoration: kTextFieldDecoration.copyWith(
                   hintText: 'Enter Your Password'),

@@ -41,8 +41,8 @@ class _LoginScreenBodyState extends State<LoginScreenBody> {
       child: Container(
         /// Container Contain Whole Body of Screen
         color: Colors.black12,
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
+        child: ListView(
+          //mainAxisAlignment: MainAxisAlignment.center,
           children: [
             LogoBox(
               height: 200,
@@ -58,9 +58,10 @@ class _LoginScreenBodyState extends State<LoginScreenBody> {
             Buttons(onPressed: userLogin).loginButton(),
 
             Divider(height: 20),
-            Text('OR'),
+            Center(child: Text('OR')),
 
-            /// this is Google SignIn Button When Button Pressed Screen Goes to ChatScreen
+            /// this is Google SignIn Button When Button Pressed and
+            /// User verification done Screen Goes to ChatScreen
             Buttons(onPressed: () async {
               setState(() {
                 inSyncCall = true;

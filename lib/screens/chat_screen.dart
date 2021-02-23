@@ -137,7 +137,10 @@ class _ChatBodyState extends State<ChatBody> {
                   onPressed: () {
                     sendMessage(userName);
                   },
-                  child: Text('Send'),
+                  child: Text(
+                    'Send',
+                    style: TextStyle(fontSize: 20, color: Colors.blue),
+                  ),
                 ),
               ],
             ),
