@@ -23,6 +23,7 @@ class MyApp extends StatelessWidget {
             color: Colors.red,
           );
         }
+
         if (snapshot.connectionState == ConnectionState.done) {
           return MaterialApp(
             initialRoute: WelcomeScreen.id,

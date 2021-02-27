@@ -33,8 +33,10 @@ class _LoginScreenBodyState extends State<LoginScreenBody> {
   bool inSyncCall = false;
 
   FirebaseAuth _auth = FirebaseAuth.instance;
+
   @override
   Widget build(BuildContext context) {
+    print(doesUserSignOut());
     return ModalProgressHUD(
       /// Loading Indicator Show When Button Pressed
       inAsyncCall: inSyncCall,
@@ -42,7 +44,6 @@ class _LoginScreenBodyState extends State<LoginScreenBody> {
         /// Container Contain Whole Body of Screen
         color: Colors.black12,
         child: ListView(
-          //mainAxisAlignment: MainAxisAlignment.center,
           children: [
             LogoBox(
               height: 200,
@@ -58,7 +59,9 @@ class _LoginScreenBodyState extends State<LoginScreenBody> {
             Buttons(onPressed: userLogin).loginButton(),
 
             Divider(height: 20),
-            Center(child: Text('OR')),
+            Center(
+              child: Text('OR'),
+            ),
 
             /// this is Google SignIn Button When Button Pressed and
             /// User verification done Screen Goes to ChatScreen
@@ -122,5 +125,11 @@ class _LoginScreenBodyState extends State<LoginScreenBody> {
 
     // Once signed in, return the UserCredential
     return await FirebaseAuth.instance.signInWithCredential(credential);
+  }
+
+  bool doesUserSignOut() {
+    bool userState = false;
+    userState = _auth.currentUser == null ?? true;
+    return userState;
   }
 }

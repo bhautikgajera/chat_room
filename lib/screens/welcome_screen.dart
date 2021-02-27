@@ -21,8 +21,21 @@ class WelcomeScreenBody extends StatefulWidget {
   _WelcomeScreenBodyState createState() => _WelcomeScreenBodyState();
 }
 
-class _WelcomeScreenBodyState extends State<WelcomeScreenBody> {
+class _WelcomeScreenBodyState extends State<WelcomeScreenBody>
+    with SingleTickerProviderStateMixin {
   bool inSyncCall = false;
+  AnimationController controller;
+  AnimationController controllerText;
+  double textAnimationValue;
+  double mainContainerColor;
+  AnimationStatus animationStatus;
+
+  @override
+  void initState() {
+    animation();
+
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -30,7 +43,7 @@ class _WelcomeScreenBodyState extends State<WelcomeScreenBody> {
       /// loading indicator show when button pressed
       inAsyncCall: inSyncCall,
       child: Container(
-        color: Colors.black12,
+        color: Colors.black12.withOpacity(mainContainerColor ?? 1),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -41,14 +54,17 @@ class _WelcomeScreenBodyState extends State<WelcomeScreenBody> {
                 /// This row Shows App's Logo and text
                 children: [
                   LogoBox(
-                    height: 50,
-                  ),
+                      height: animationStatus != AnimationStatus.dismissed
+                          ? (mainContainerColor ?? 1) * 100
+                          : 50),
                   SizedBox(
                     width: 10,
                   ),
-                  Text(
-                    'ChatRoom',
-                    style: TextStyle(fontSize: 30),
+                  Expanded(
+                    child: Text(
+                      'ChatRoom',
+                      style: TextStyle(fontSize: textAnimationValue),
+                    ),
                   ),
                 ],
               ),
@@ -77,5 +93,43 @@ class _WelcomeScreenBodyState extends State<WelcomeScreenBody> {
         ),
       ),
     );
+  }
+
+  void animation() {
+    controller = AnimationController(
+      lowerBound: 0.2,
+      vsync: this,
+      duration: Duration(seconds: 2),
+      reverseDuration: Duration(seconds: 2),
+    );
+    controller.forward();
+
+    controller.addListener(() {
+      setState(() {
+        mainContainerColor = controller.value;
+      });
+    });
+
+    controller.addStatusListener(
+      (status) {
+        if (status == AnimationStatus.completed) {
+          controller.reverse();
+
+          controller.addListener(() {
+            setState(() {
+              mainContainerColor = controller.value;
+            });
+          });
+        }
+      },
+    );
+
+    controller.addStatusListener((status) {
+      if (status == AnimationStatus.dismissed) {
+        if (status == AnimationStatus.dismissed) {
+          animationStatus = status;
+        }
+      }
+    });
   }
 }

@@ -8,7 +8,6 @@ import 'package:flutter/material.dart';
 /// the ChatScreen Displays Text Messages to the screen
 /// the text messages are Stored in Firebase Collection
 /// user also send message to the collection
-
 class ChatScreen extends StatelessWidget {
   static const String id = 'chatScreen';
 

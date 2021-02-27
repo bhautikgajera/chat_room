@@ -96,7 +96,7 @@ class _RegistrationBodyState extends State<RegistrationBody> {
           ? Navigator.pushNamed(context, ChatScreen.id)
           : print('Usercraed NULL');
     } catch (e) {
-      print(e);
+
     }
     setState(() {
       inSyncCall = false;
